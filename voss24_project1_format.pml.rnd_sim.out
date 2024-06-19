@@ -1,0 +1,250 @@
+  0:	proc  - (:root:) creates proc  0 (:init:)
+Starting Tower with pid 1
+  1:	proc  0 (:init::1) creates proc  1 (Tower)
+  1:	proc  0 (:init::1) voss24_project1_format.pml:125 (state 1)	[(run Tower())]
+
+Starting Airplane with pid 2
+  2:	proc  0 (:init::1) creates proc  2 (Airplane)
+  2:	proc  0 (:init::1) voss24_project1_format.pml:126 (state 2)	[(run Airplane(1))]
+
+Starting Airplane with pid 3
+  3:	proc  0 (:init::1) creates proc  3 (Airplane)
+  3:	proc  0 (:init::1) voss24_project1_format.pml:127 (state 3)	[(run Airplane(2))]
+
+Starting Airplane with pid 4
+  4:	proc  0 (:init::1) creates proc  4 (Airplane)
+  4:	proc  0 (:init::1) voss24_project1_format.pml:128 (state 4)	[(run Airplane(3))]
+
+Starting Airplane with pid 5
+  5:	proc  0 (:init::1) creates proc  5 (Airplane)
+  5:	proc  0 (:init::1) voss24_project1_format.pml:129 (state 5)	[(run Airplane(4))]
+
+Starting Airplane with pid 6
+  6:	proc  0 (:init::1) creates proc  6 (Airplane)
+  6:	proc  0 (:init::1) voss24_project1_format.pml:130 (state 6)	[(run Airplane(5))]
+
+  7:	proc  0 (:init::1) voss24_project1_format.pml:133 (state 8)	[tower_cmd!AIR_GO_AROUND,1]
+  7:	proc  5 (Airplane:1) voss24_project1_format.pml:84 (state 5)	[tower_cmd?AIR_GO_AROUND,id]
+  7:	proc  0 (:init::1) voss24_project1_format.pml:133 (state -)	[values: 1!AIR_GO_AROUND,1]
+  7:	proc  5 (Airplane:1) voss24_project1_format.pml:84 (state -)	[values: 1?AIR_GO_AROUND,1]
+		Airplane(5):id = 1
+
+Airplane 1 goes around
+  8:	proc  5 (Airplane:1) voss24_project1_format.pml:85 (state 6)	[printf('Airplane %d goes around\\n',id)]
+
+  9:	proc  5 (Airplane:1) voss24_project1_format.pml:86 (state -)	[values: 2!AIR_GO_AROUND,1]
+  9:	proc  5 (Airplane:1) voss24_project1_format.pml:86 (state 7)	[plane_state!AIR_GO_AROUND,id]
+		queue 2 (plane_state): [AIR_GO_AROUND,1]
+
+ 10:	proc  5 (Airplane:1) voss24_project1_format.pml:87 (state 8)	[goto Air]
+
+ 11:	proc  0 (:init::1) voss24_project1_format.pml:134 (state 9)	[tower_cmd!AIR_GO_AROUND,2]
+ 11:	proc  4 (Airplane:1) voss24_project1_format.pml:84 (state 5)	[tower_cmd?AIR_GO_AROUND,id]
+ 11:	proc  0 (:init::1) voss24_project1_format.pml:134 (state -)	[values: 1!AIR_GO_AROUND,2]
+ 11:	proc  4 (Airplane:1) voss24_project1_format.pml:84 (state -)	[values: 1?AIR_GO_AROUND,2]
+		Airplane(4):id = 2
+
+ 12:	proc  1 (Tower:1) voss24_project1_format.pml:15 (state -)	[values: 2?AIR_GO_AROUND,1]
+ 12:	proc  1 (Tower:1) voss24_project1_format.pml:15 (state 3)	[plane_state?AIR_GO_AROUND,i]
+		queue 2 (plane_state): 
+		Tower(1):i = 1
+
+Airplane 2 goes around
+ 13:	proc  4 (Airplane:1) voss24_project1_format.pml:85 (state 6)	[printf('Airplane %d goes around\\n',id)]
+
+ 14:	proc  1 (Tower:1) voss24_project1_format.pml:18 (state 4)	[(((!(runway)&&!(taxiway))&&(gates_count<4)))]
+
+ 15:	proc  1 (Tower:1) voss24_project1_format.pml:19 (state 5)	[runway = 1]
+		runway = 1
+
+ 16:	proc  1 (Tower:1) voss24_project1_format.pml:19 (state 6)	[tower_cmd!RUNWAY_LAND,i]
+ 16:	proc  2 (Airplane:1) voss24_project1_format.pml:80 (state 1)	[tower_cmd?RUNWAY_LAND,id]
+ 16:	proc  1 (Tower:1) voss24_project1_format.pml:19 (state -)	[values: 1!RUNWAY_LAND,1]
+ 16:	proc  2 (Airplane:1) voss24_project1_format.pml:80 (state -)	[values: 1?RUNWAY_LAND,1]
+		Airplane(2):id = 1
+
+ 17:	proc  0 (:init::1) voss24_project1_format.pml:135 (state 10)	[tower_cmd!AIR_GO_AROUND,3]
+ 17:	proc  5 (Airplane:1) voss24_project1_format.pml:84 (state 5)	[tower_cmd?AIR_GO_AROUND,id]
+ 17:	proc  0 (:init::1) voss24_project1_format.pml:135 (state -)	[values: 1!AIR_GO_AROUND,3]
+ 17:	proc  5 (Airplane:1) voss24_project1_format.pml:84 (state -)	[values: 1?AIR_GO_AROUND,3]
+		Airplane(5):id = 3
+
+Airplane 1 landing
+ 18:	proc  2 (Airplane:1) voss24_project1_format.pml:81 (state 2)	[printf('Airplane %d landing\\n',id)]
+
+ 19:	proc  0 (:init::1) voss24_project1_format.pml:136 (state 11)	[tower_cmd!AIR_GO_AROUND,4]
+ 19:	proc  6 (Airplane:1) voss24_project1_format.pml:84 (state 5)	[tower_cmd?AIR_GO_AROUND,id]
+ 19:	proc  0 (:init::1) voss24_project1_format.pml:136 (state -)	[values: 1!AIR_GO_AROUND,4]
+ 19:	proc  6 (Airplane:1) voss24_project1_format.pml:84 (state -)	[values: 1?AIR_GO_AROUND,4]
+		Airplane(6):id = 4
+
+ 20:	proc  2 (Airplane:1) voss24_project1_format.pml:82 (state -)	[values: 2!RUNWAY_LAND,1]
+ 20:	proc  2 (Airplane:1) voss24_project1_format.pml:82 (state 3)	[plane_state!RUNWAY_LAND,id]
+		queue 2 (plane_state): [RUNWAY_LAND,1]
+
+Airplane 4 goes around
+ 21:	proc  6 (Airplane:1) voss24_project1_format.pml:85 (state 6)	[printf('Airplane %d goes around\\n',id)]
+
+ 22:	proc  6 (Airplane:1) voss24_project1_format.pml:86 (state -)	[values: 2!AIR_GO_AROUND,4]
+ 22:	proc  6 (Airplane:1) voss24_project1_format.pml:86 (state 7)	[plane_state!AIR_GO_AROUND,id]
+		queue 2 (plane_state): [RUNWAY_LAND,1][AIR_GO_AROUND,4]
+
+ 23:	proc  1 (Tower:1) voss24_project1_format.pml:24 (state -)	[values: 2?RUNWAY_LAND,1]
+ 23:	proc  1 (Tower:1) voss24_project1_format.pml:24 (state 13)	[plane_state?RUNWAY_LAND,i]
+		queue 2 (plane_state): [AIR_GO_AROUND,4]
+		Tower(1):i = 1
+
+ 24:	proc  2 (Airplane:1) voss24_project1_format.pml:83 (state 4)	[goto Runway]
+
+ 25:	proc  6 (Airplane:1) voss24_project1_format.pml:87 (state 8)	[goto Air]
+
+ 26:	proc  0 (:init::1) voss24_project1_format.pml:137 (state 12)	[tower_cmd!AIR_GO_AROUND,5]
+ 26:	proc  3 (Airplane:1) voss24_project1_format.pml:84 (state 5)	[tower_cmd?AIR_GO_AROUND,id]
+ 26:	proc  0 (:init::1) voss24_project1_format.pml:137 (state -)	[values: 1!AIR_GO_AROUND,5]
+ 26:	proc  3 (Airplane:1) voss24_project1_format.pml:84 (state -)	[values: 1?AIR_GO_AROUND,5]
+		Airplane(3):id = 5
+
+Airplane 3 goes around
+ 27:	proc  5 (Airplane:1) voss24_project1_format.pml:85 (state 6)	[printf('Airplane %d goes around\\n',id)]
+
+Airplane 5 goes around
+ 28:	proc  3 (Airplane:1) voss24_project1_format.pml:85 (state 6)	[printf('Airplane %d goes around\\n',id)]
+
+ 29:	proc  5 (Airplane:1) voss24_project1_format.pml:86 (state -)	[values: 2!AIR_GO_AROUND,3]
+ 29:	proc  5 (Airplane:1) voss24_project1_format.pml:86 (state 7)	[plane_state!AIR_GO_AROUND,id]
+		queue 2 (plane_state): [AIR_GO_AROUND,4][AIR_GO_AROUND,3]
+
+ 30:	proc  3 (Airplane:1) voss24_project1_format.pml:86 (state -)	[values: 2!AIR_GO_AROUND,5]
+ 30:	proc  3 (Airplane:1) voss24_project1_format.pml:86 (state 7)	[plane_state!AIR_GO_AROUND,id]
+		queue 2 (plane_state): [AIR_GO_AROUND,4][AIR_GO_AROUND,3][AIR_GO_AROUND,5]
+
+ 31:	proc  3 (Airplane:1) voss24_project1_format.pml:87 (state 8)	[goto Air]
+
+ 32:	proc  4 (Airplane:1) voss24_project1_format.pml:86 (state -)	[values: 2!AIR_GO_AROUND,2]
+ 32:	proc  4 (Airplane:1) voss24_project1_format.pml:86 (state 7)	[plane_state!AIR_GO_AROUND,id]
+		queue 2 (plane_state): [AIR_GO_AROUND,4][AIR_GO_AROUND,3][AIR_GO_AROUND,5][AIR_GO_AROUND,2]
+
+ 33:	proc  4 (Airplane:1) voss24_project1_format.pml:87 (state 8)	[goto Air]
+
+ 34:	proc  5 (Airplane:1) voss24_project1_format.pml:87 (state 8)	[goto Air]
+
+ 35:	proc  1 (Tower:1) voss24_project1_format.pml:27 (state 14)	[((!(taxiway)&&(gates_count<4)))]
+
+ 36:	proc  1 (Tower:1) voss24_project1_format.pml:28 (state 15)	[taxiway = 1]
+		taxiway = 1
+
+ 37:	proc  1 (Tower:1) voss24_project1_format.pml:29 (state 16)	[tower_cmd!TAXIWAY_LAND,i]
+ 37:	proc  2 (Airplane:1) voss24_project1_format.pml:92 (state 11)	[tower_cmd?TAXIWAY_LAND,id]
+ 37:	proc  1 (Tower:1) voss24_project1_format.pml:29 (state -)	[values: 1!TAXIWAY_LAND,1]
+ 37:	proc  2 (Airplane:1) voss24_project1_format.pml:92 (state -)	[values: 1?TAXIWAY_LAND,1]
+		Airplane(2):id = 1
+
+Airplane 1 taxing to the gate
+ 38:	proc  2 (Airplane:1) voss24_project1_format.pml:93 (state 12)	[printf('Airplane %d taxing to the gate\\n',id)]
+
+ 39:	proc  1 (Tower:1) voss24_project1_format.pml:30 (state 17)	[runway = 0]
+		runway = 0
+
+ 40:	proc  2 (Airplane:1) voss24_project1_format.pml:94 (state -)	[values: 2!TAXIWAY_LAND,1]
+ 40:	proc  2 (Airplane:1) voss24_project1_format.pml:94 (state 13)	[plane_state!TAXIWAY_LAND,id]
+		queue 2 (plane_state): [AIR_GO_AROUND,4][AIR_GO_AROUND,3][AIR_GO_AROUND,5][AIR_GO_AROUND,2][TAXIWAY_LAND,1]
+
+ 41:	proc  1 (Tower:1) voss24_project1_format.pml:15 (state -)	[values: 2?AIR_GO_AROUND,4]
+ 41:	proc  1 (Tower:1) voss24_project1_format.pml:15 (state 3)	[plane_state?AIR_GO_AROUND,i]
+		queue 2 (plane_state): [AIR_GO_AROUND,3][AIR_GO_AROUND,5][AIR_GO_AROUND,2][TAXIWAY_LAND,1]
+		Tower(1):i = 4
+
+ 42:	proc  1 (Tower:1) voss24_project1_format.pml:20 (state 7)	[else]
+
+Airplane 4 goes around 
+ 43:	proc  1 (Tower:1) voss24_project1_format.pml:21 (state 8)	[printf('Airplane %d goes around \\n',i)]
+
+ 44:	proc  1 (Tower:1) voss24_project1_format.pml:21 (state -)	[values: 2!AIR_GO_AROUND,4]
+ 44:	proc  1 (Tower:1) voss24_project1_format.pml:21 (state 9)	[plane_state!AIR_GO_AROUND,i]
+		queue 2 (plane_state): [AIR_GO_AROUND,3][AIR_GO_AROUND,5][AIR_GO_AROUND,2][TAXIWAY_LAND,1][AIR_GO_AROUND,4]
+
+ 45:	proc  1 (Tower:1) voss24_project1_format.pml:15 (state -)	[values: 2?AIR_GO_AROUND,3]
+ 45:	proc  1 (Tower:1) voss24_project1_format.pml:15 (state 3)	[plane_state?AIR_GO_AROUND,i]
+		queue 2 (plane_state): [AIR_GO_AROUND,5][AIR_GO_AROUND,2][TAXIWAY_LAND,1][AIR_GO_AROUND,4]
+		Tower(1):i = 3
+
+ 46:	proc  1 (Tower:1) voss24_project1_format.pml:20 (state 7)	[else]
+
+Airplane 3 goes around 
+ 47:	proc  1 (Tower:1) voss24_project1_format.pml:21 (state 8)	[printf('Airplane %d goes around \\n',i)]
+
+ 48:	proc  1 (Tower:1) voss24_project1_format.pml:21 (state -)	[values: 2!AIR_GO_AROUND,3]
+ 48:	proc  1 (Tower:1) voss24_project1_format.pml:21 (state 9)	[plane_state!AIR_GO_AROUND,i]
+		queue 2 (plane_state): [AIR_GO_AROUND,5][AIR_GO_AROUND,2][TAXIWAY_LAND,1][AIR_GO_AROUND,4][AIR_GO_AROUND,3]
+
+ 49:	proc  2 (Airplane:1) voss24_project1_format.pml:95 (state 14)	[goto Taxiway]
+
+ 50:	proc  1 (Tower:1) voss24_project1_format.pml:15 (state -)	[values: 2?AIR_GO_AROUND,5]
+ 50:	proc  1 (Tower:1) voss24_project1_format.pml:15 (state 3)	[plane_state?AIR_GO_AROUND,i]
+		queue 2 (plane_state): [AIR_GO_AROUND,2][TAXIWAY_LAND,1][AIR_GO_AROUND,4][AIR_GO_AROUND,3]
+		Tower(1):i = 5
+
+ 51:	proc  1 (Tower:1) voss24_project1_format.pml:20 (state 7)	[else]
+
+Airplane 5 goes around 
+ 52:	proc  1 (Tower:1) voss24_project1_format.pml:21 (state 8)	[printf('Airplane %d goes around \\n',i)]
+
+ 53:	proc  1 (Tower:1) voss24_project1_format.pml:21 (state -)	[values: 2!AIR_GO_AROUND,5]
+ 53:	proc  1 (Tower:1) voss24_project1_format.pml:21 (state 9)	[plane_state!AIR_GO_AROUND,i]
+		queue 2 (plane_state): [AIR_GO_AROUND,2][TAXIWAY_LAND,1][AIR_GO_AROUND,4][AIR_GO_AROUND,3][AIR_GO_AROUND,5]
+
+ 54:	proc  1 (Tower:1) voss24_project1_format.pml:15 (state -)	[values: 2?AIR_GO_AROUND,2]
+ 54:	proc  1 (Tower:1) voss24_project1_format.pml:15 (state 3)	[plane_state?AIR_GO_AROUND,i]
+		queue 2 (plane_state): [TAXIWAY_LAND,1][AIR_GO_AROUND,4][AIR_GO_AROUND,3][AIR_GO_AROUND,5]
+		Tower(1):i = 2
+
+ 55:	proc  1 (Tower:1) voss24_project1_format.pml:20 (state 7)	[else]
+
+Airplane 2 goes around 
+ 56:	proc  1 (Tower:1) voss24_project1_format.pml:21 (state 8)	[printf('Airplane %d goes around \\n',i)]
+
+ 57:	proc  1 (Tower:1) voss24_project1_format.pml:21 (state -)	[values: 2!AIR_GO_AROUND,2]
+ 57:	proc  1 (Tower:1) voss24_project1_format.pml:21 (state 9)	[plane_state!AIR_GO_AROUND,i]
+		queue 2 (plane_state): [TAXIWAY_LAND,1][AIR_GO_AROUND,4][AIR_GO_AROUND,3][AIR_GO_AROUND,5][AIR_GO_AROUND,2]
+
+ 58:	proc  1 (Tower:1) voss24_project1_format.pml:36 (state -)	[values: 2?TAXIWAY_LAND,1]
+ 58:	proc  1 (Tower:1) voss24_project1_format.pml:36 (state 24)	[plane_state?TAXIWAY_LAND,i]
+		queue 2 (plane_state): [AIR_GO_AROUND,4][AIR_GO_AROUND,3][AIR_GO_AROUND,5][AIR_GO_AROUND,2]
+		Tower(1):i = 1
+
+ 59:	proc  1 (Tower:1) voss24_project1_format.pml:39 (state 25)	[((gates_count<4))]
+
+ 60:	proc  1 (Tower:1) voss24_project1_format.pml:40 (state 26)	[gates_count = (gates_count+1)]
+		gates_count = 1
+
+ 61:	proc  1 (Tower:1) voss24_project1_format.pml:41 (state 27)	[tower_cmd!GATE,i]
+ 61:	proc  2 (Airplane:1) voss24_project1_format.pml:104 (state 21)	[tower_cmd?GATE,id]
+ 61:	proc  1 (Tower:1) voss24_project1_format.pml:41 (state -)	[values: 1!GATE,1]
+ 61:	proc  2 (Airplane:1) voss24_project1_format.pml:104 (state -)	[values: 1?GATE,1]
+		Airplane(2):id = 1
+
+ 62:	proc  1 (Tower:1) voss24_project1_format.pml:41 (state 28)	[taxiway = 0]
+		taxiway = 0
+
+Airplane 1 docking to gate
+ 63:	proc  2 (Airplane:1) voss24_project1_format.pml:105 (state 22)	[printf('Airplane %d docking to gate\\n',id)]
+
+ 64:	proc  2 (Airplane:1) voss24_project1_format.pml:106 (state -)	[values: 2!GATE,1]
+ 64:	proc  2 (Airplane:1) voss24_project1_format.pml:106 (state 23)	[plane_state!GATE,id]
+		queue 2 (plane_state): [AIR_GO_AROUND,4][AIR_GO_AROUND,3][AIR_GO_AROUND,5][AIR_GO_AROUND,2][GATE,1]
+
+ 65:	proc  1 (Tower:1) voss24_project1_format.pml:15 (state -)	[values: 2?AIR_GO_AROUND,4]
+ 65:	proc  1 (Tower:1) voss24_project1_format.pml:15 (state 3)	[plane_state?AIR_GO_AROUND,i]
+		queue 2 (plane_state): [AIR_GO_AROUND,3][AIR_GO_AROUND,5][AIR_GO_AROUND,2][GATE,1]
+		Tower(1):i = 4
+
+ 66:	proc  2 (Airplane:1) voss24_project1_format.pml:107 (state 24)	[goto Gate]
+
+ 67:	proc  1 (Tower:1) voss24_project1_format.pml:18 (state 4)	[(((!(runway)&&!(taxiway))&&(gates_count<4)))]
+
+ 68:	proc  1 (Tower:1) voss24_project1_format.pml:19 (state 5)	[runway = 1]
+		runway = 1
+
+ 69:	proc  1 (Tower:1) voss24_project1_format.pml:19 (state 6)	[tower_cmd!RUNWAY_LAND,i]
+ 69:	proc  4 (Airplane:1) voss24_project1_format.pml:80 (state 1)	[tower_cmd?RUNWAY_LAND,id]
+ 69:	proc  1 (Tower:1) voss24_project1_format.pml:19 (state -)	[values: 1!RUNWAY_LAND,4]
